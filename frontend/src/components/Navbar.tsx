@@ -38,7 +38,7 @@ function NavBar() {
           <div className="flex items-center justify-between min-h-16">
             {/* LOGO */}
             <div className="shrink-0">
-              <Link to="/" className="text-xl font-bold text-primary">Voxel</Link>
+              <Link to="/" className="text-xl font-bold text-primary">Voltix</Link>
             </div>
             {/* NAVIGATION LINKS */}
             <div className="hidden md:flex space-x-4">

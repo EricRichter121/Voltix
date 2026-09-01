@@ -9,6 +9,7 @@ import ProductPage from './pages/ProductPage'
 import AboutPage from './pages/AboutPage'
 // import NotFoundPage from './pages/NotFoundPage'
 import CategoriesPage from './pages/CategoriesPage'
+import UserPage from './pages/UserPage'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/profile" element={<UserPage />} />
       </Routes>
 
       <Footer />

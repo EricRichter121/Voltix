@@ -13,7 +13,7 @@ function Footer() {
               to="/"
               className="text-xl font-bold text-primary"
             >
-              Voxel
+              Voltix
             </Link>
           </div>
 

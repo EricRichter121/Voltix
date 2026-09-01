@@ -1,5 +1,3 @@
-// Сервер: src/middlewares/auth.middleware.ts
-
 import type {
   Request,
   Response,
