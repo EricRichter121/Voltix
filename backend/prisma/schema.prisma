@@ -46,26 +46,26 @@ model Product {
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
 
-  cartItems   CartItem[] // Связь "Один-ко-многим" с CartItem
-  orderItems OrderItem[] // Связь "Один-ко-многим" с OrderItem
+  cartItems   CartItem[]
+  orderItems OrderItem[]
 }
 
 model Cart {
   id     String     @id @default(uuid())
-  userId String     @unique // Гарантирует, что у каждого пользователя будет только одна корзина
+  userId String     @unique 
   user   User       @relation(fields: [userId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  items  CartItem[] // Связь "Один-ко-многим" с CartItem
+  items  CartItem[] 
 }
 
 model CartItem {
   id        String  @id @default(uuid())
   cartId    String
   cart      Cart    @relation(fields: [cartId], references: [id])
-  productId String  @unique
+  productId String
   product   Product @relation(fields: [productId], references: [id])
   quantity  Int
 
@@ -74,7 +74,7 @@ model CartItem {
   updatedAt DateTime @updatedAt
 
 
-  @@unique([cartId, productId]) // Гарантирует, что один и тот же продукт не может быть добавлен в корзину более одного раза
+  @@unique([cartId, productId])
 }
 
 model Order {
@@ -83,10 +83,9 @@ model Order {
   user            User        @relation(fields: [userId], references: [id])
   totalAmount     Float
   deliveryAddress String
-  status          OrderStatus @default(PENDING) // Статус заказа, например: PENDING, COMPLETED, CANCELLED
+  status          OrderStatus @default(PENDING) // Order status
   
-  
-  items           OrderItem[] // Связь "Один-ко-многим" с OrderItem
+  items           OrderItem[] // Many-to-many relationship with OrderItem
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -97,7 +96,7 @@ model OrderItem {
   orderId   String
   order     Order    @relation(fields: [orderId], references: [id])
   productId String?
-  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull) // Если продукт удален, устанавливаем productId в null
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull) // If product is deleted, set productId to null
   quantity  Int
   price     Float
 

@@ -20,7 +20,7 @@ export default function userPage() {
                 </div>
                 ) : (
                     <div>
-                        <main className="min-h-screen bg-gray- px-6 py-12">
+                        <main className="min-h-screen bg-gray-100 px-6 py-12">
                         <div className="mx-auto max-w-3xl">
                             <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
                             {/* Header */}
